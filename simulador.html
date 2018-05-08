@@ -1,21 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Simulador - Difraccion de luz</title>
+    <link rel="stylesheet" type="text/css" href="myStyle.css">
+    <link rel="icon" href="src/ucc_logo.png">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
 </head>
-<body>
-<div>
-    Difraccion de luz
-    <button>Info</button>
-</div>
-<div>
-    <div>
-        <form>
-            <input value="Longitud de onda">
 
-        </form>
-    </div>
+<body>
+
+<header>
+    <h1 class="titulo" >Difracción de luz</h1>
+    <button class="info_btn"><img src="src/ayudar.png" class="info_icon"></button>
+</header>
+
+<div>
+    <form>
+        <div id="input1" class="input"><input value="Longitud de onda" id="input1"> mm</div>
+        <div id="input2" class="input"><input value="Ancho de la rendija" id="input2"> mm</div>
+        <div id="input3" class="input"><input value="Distancia" id="input3"> mm</div>
+    </form>
 </div>
+
+<div>
+    <a href="simulador.html" class="boton_verde" id="boton3">Calcular</a>
+    <a href="homePage.html" class="boton_azul" id="boton4">Volver</a>
+</div>
+
+<div>
+    <canvas id="canvas1">Tu explorador no soporta este canvas</canvas>
+</div>
+
+<footer class="footer" id="footer2">
+    Created by Rodrigo Pizarro - UCC - 2018
+</footer>
+
 </body>
 </html>
