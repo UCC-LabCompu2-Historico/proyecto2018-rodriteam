@@ -100,10 +100,10 @@ body {
 
 #texto2 {
     border: 4px solid black;
-    margin-left: 700px;
+    margin-left: 650px;
     margin-top: 70px;
     height: 800px;
-    width: 620px;
+    width: 700px;
 }
 
 .texto {
@@ -241,4 +241,8 @@ div#input3 {
     position: absolute;
     left: 295px;
     top: 1150px;
+}
+
+.input:active{
+    content: none;
 }
