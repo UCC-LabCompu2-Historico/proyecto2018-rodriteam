@@ -1,19 +1,20 @@
-/**
- *
- */
-let cont = 0;
-let cont2 = 0;
+/* Rodrigo Pizarro - Laboratorio de computacion 2 */
 let longitudDeOnda;
 let altoRendija;
 let distancia;
+
 let canvas;
+let ctx;
 
 let lon;
 let an;
 let dis;
-let ctx;
+
 let objeto;
 let rendija;
+
+let cont;
+let cont2;
 
 function init(){
     cont = 0;
@@ -40,6 +41,8 @@ function init(){
 function calcular() {
     cont = 0;
     cont2 = 0;
+
+    //Comprobación de los campos
     if (longitudDeOnda.value > 15 || longitudDeOnda.value < 1){
         alert("El valor de Longitud de onda debe ir entre 1 y 15 mm");
         return;
@@ -197,6 +200,7 @@ function dibujar(){
         ctx.stroke();
     }
 }
+
 setInterval(dibujar, 30);
 
 /*
