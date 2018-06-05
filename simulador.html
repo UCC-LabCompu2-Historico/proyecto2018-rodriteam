@@ -24,16 +24,32 @@
 <div>
     <form>
         <div class="input">
-            <input id="input1" placeholder="Longitud de onda" type="number">
-            <label for="input1" class="titulo2" style="color: #F00;">mm </label>
+            <input id="input1" placeholder="Longitud de onda" type="number" data-toggle="tooltip" data-placement="top" title="No inrgesar numeros menores a 0!">
+
+            <select class="boton_rojo" id="label1">
+                <option class="op">m</option>
+                <option class="op">pul</option>
+                <option class="op">pies</option>
+                <option class="op">yarda</option>
+            </select>
         </div>
         <div class="input">
-            <input id="input2" placeholder="Ancho de la rendija" type="number">
-            <label for="input1" class="titulo2" style="color: #008000">mm </label>
+            <input id="input2" placeholder="Ancho de la rendija" type="number" data-toggle="tooltip" data-placement="top" title="No inrgesar numeros menores a 0!">
+            <select class="boton_verde" id="label2">
+                <option class="op">m</option>
+                <option class="op">pul</option>
+                <option class="op">pies</option>
+                <option class="op">yarda</option>
+            </select>
         </div>
         <div class="input">
-            <input id="input3" placeholder="Distancia" type="number">
-            <label for="input1" class="titulo2" style="color: #0000FF">m </label>
+            <input id="input3" placeholder="Distancia" type="number" data-toggle="tooltip" data-placement="top" title="No inrgesar numeros menores a 0!">
+            <select class="boton_azul" id="label3">
+                <option class="op">m</option>
+                <option class="op">pul</option>
+                <option class="op">pies</option>
+                <option class="op">yarda</option>
+            </select>
         </div>
     </form>
 </div>

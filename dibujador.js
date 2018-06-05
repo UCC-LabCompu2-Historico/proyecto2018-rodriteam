@@ -3,6 +3,10 @@ let longitudDeOnda;
 let altoRendija;
 let distancia;
 
+let unidadLongitudDeOnda;
+let unidadDistancia;
+let unidadAltoRendija;
+
 let canvas;
 let ctx;
 
@@ -16,12 +20,15 @@ let rendija;
 let cont;
 let cont2;
 
-function init(){
+function init() {
     cont = 0;
     cont2 = 0;
     longitudDeOnda = document.getElementById("input1");
     altoRendija = document.getElementById("input2");
     distancia = document.getElementById("input3");
+    unidadLongitudDeOnda = document.getElementById("label1");
+    unidadAltoRendija = document.getElementById("label2");
+    unidadDistancia = document.getElementById("label3");
     canvas = document.getElementById("canvas1");
     ctx = canvas.getContext("2d");
     lon = 1;
@@ -31,33 +38,111 @@ function init(){
         ancho: 10,
         alto: canvas.height,
     };
-    rendija = {
-        ancho: objeto.ancho,
-        alto: altoRendija.value,
-    };
+    switch (unidadAltoRendija.selectedIndex) {
+        case 0:
+            rendija = {
+                ancho: objeto.ancho,
+                alto: altoRendija.value,
+            };
+            break;
+        case 1:
+            rendija = {
+                ancho: objeto.ancho,
+                alto: altoRendija.value * 0.0254,
+            };
+            break;
+        case 2:
+            rendija = {
+                ancho: objeto.ancho,
+                alto: altoRendija.value * 0.3048,
+            };
+            break;
+        case 3:
+            rendija = {
+                ancho: objeto.ancho,
+                alto: altoRendija.value * 0.9144,
+            };
+            break;
+    }
 }
-
 
 function calcular() {
     cont = 0;
     cont2 = 0;
 
+    console.log(unidadAltoRendija.selectedIndex);
+    let auxDis,auxAn,auxLon;
+    let minDis,minAn,minLon;
+    switch (unidadAltoRendija.selectedIndex) {
+        case 0:
+            auxAn = altoRendija.value;
+            minAn = 1;
+            break;
+        case 1:
+            auxAn = altoRendija.value * 0.0254;
+            minAn = 39.3701;
+            break;
+        case 2:
+            auxAn = altoRendija.value * 0.3048;
+            minAn = 3.28084;
+            break;
+        case 3:
+            auxAn = altoRendija.value * 0.9144;
+            minAn = 1.09361;
+            break;
+    }
+    switch (unidadDistancia.selectedIndex) {
+        case 0:
+            auxDis = distancia.value;
+            minDis = 1;
+            break;
+        case 1:
+            auxDis = distancia.value * 0.0254;
+            minDis = 39.3701;
+            break;
+        case 2:
+            auxDis = distancia.value * 0.3048;
+            minDis = 3.28084;
+            break;
+        case 3:
+            auxDis = distancia.value * 0.9144;
+            minDis = 1.09361;
+            break;
+    }
+    switch (unidadLongitudDeOnda.selectedIndex) {
+        case 0:
+            auxLon = longitudDeOnda.value;
+            minLon = 1;
+            break;
+        case 1:
+            auxLon = longitudDeOnda.value * 0.0254;
+            minLon = 39.3701;
+            break;
+        case 2:
+            auxLon = longitudDeOnda.value * 0.3048;
+            minLon = 3.28084;
+            break;
+        case 3:
+            auxLon = longitudDeOnda.value * 0.9144;
+            minLon = 1.09361;
+            break;
+    }
     //Comprobación de los campos
-    if (longitudDeOnda.value > 15 || longitudDeOnda.value < 1){
-        alert("El valor de Longitud de onda debe ir entre 1 y 15 mm");
+    if (auxLon > 15 || auxLon < 1){
+        alert("El valor de Longitud de onda debe ir entre " + minLon + " y " + minLon*15);
         return;
     }
-    if(altoRendija.value > 20|| altoRendija < 1){
-        alert("El valor del ancho de la rendija debe ir entre 1 y 20 mm");
+    if(auxAn > 20|| auxAn < 1){
+        alert("El valor del ancho de la rendija debe ir entre " + minAn + " y " + minAn*15);
         return;
     }
-    if(distancia.value > 10|| distancia < 1){
-        alert("El valor de la distancia a debe ir entre 1 y 10 m");
+    if(auxDis > 10|| auxDis < 1){
+        alert("El valor de la distancia a debe ir entre " + minDis + " y " + minDis*10);
         return;
     }
-    lon = longitudDeOnda.value;
-    an = altoRendija.value;
-    dis = distancia.value;
+    lon = auxLon;
+    an = auxAn;
+    dis = auxDis;
     rendija.alto = an;
 }
 
